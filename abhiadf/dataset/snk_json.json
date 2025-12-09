@@ -1,0 +1,42 @@
+{
+	"name": "snk_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "BusinessEntityID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RateChangeDate",
+				"type": "date"
+			},
+			{
+				"name": "Rate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PayFrequency",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "HumanResources",
+			"table": "EmployeePayHistory"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

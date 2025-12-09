@@ -1,0 +1,40 @@
+{
+	"name": "sr_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "HumanResources_EmployeePayHistory.json",
+				"folderPath": "adf",
+				"fileSystem": "abhii-containerdev"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"BusinessEntityID": {
+					"type": "string"
+				},
+				"RateChangeDate": {
+					"type": "string"
+				},
+				"Rate": {
+					"type": "string"
+				},
+				"PayFrequency": {
+					"type": "string"
+				},
+				"ModifiedDate": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
