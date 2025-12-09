@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "abhii-df-dev"
+		},
+		"lnk_adls_accountKey": {
+			"value": ""
+		},
+		"lnk_azuresql_password": {
+			"value": ""
+		},
+		"lnk_onprem_password": {
+			"value": ""
+		},
+		"lnk_adls_properties_typeProperties_url": {
+			"value": "https://abhidatalakedev.dfs.core.windows.net/"
+		},
+		"lnk_azuresql_properties_typeProperties_server": {
+			"value": "abhideb.database.windows.net"
+		},
+		"lnk_azuresql_properties_typeProperties_database": {
+			"value": "abhideb"
+		},
+		"lnk_azuresql_properties_typeProperties_userName": {
+			"value": "abhiiadmin2"
+		},
+		"lnk_onprem_properties_typeProperties_server": {
+			"value": "ABHII\\SQLEXPRESS"
+		},
+		"lnk_onprem_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"lnk_onprem_properties_typeProperties_userName": {
+			"value": "Abhi"
+		}
+	}
+}
