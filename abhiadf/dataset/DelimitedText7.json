@@ -19,7 +19,7 @@
 					"value": "@dataset().file_name",
 					"type": "Expression"
 				},
-				"folderPath": "sales_multiple",
+				"folderPath": "data",
 				"fileSystem": "abhii-containerdev"
 			},
 			"columnDelimiter": ",",
