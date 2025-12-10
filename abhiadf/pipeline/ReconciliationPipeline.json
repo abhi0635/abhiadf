@@ -1,0 +1,127 @@
+{
+	"name": "ReconciliationPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "SourceCountLookup",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "SELECT COUNT(*) FROM Purchasing.ProductVendor;\n\n\n",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable16",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "TargetCountLookup",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "SourceCountLookup",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "SELECT COUNT(*) AS TargetCount FROM Purchasing.ProductVendor;",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable17",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "TargetCountLookup",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [
+					{
+						"name": "rec",
+						"value": "string"
+					}
+				],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(\n    activity('SourceCountLookup').output.firstRow.SourceCount,\n    activity('TargetCountLookup').output.firstRow.TargetCount\n)\n",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "ReconciliationResult",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "ReconciliationResult"
+								}
+							],
+							"typeProperties": {
+								"variableName": "ReconciliationResult",
+								"value": {
+									"value": "@concat('Source Count = ', activity('SourceCountLookup').output.firstRow.Cnt, \n        ', Target Count = ', activity('TargetCountLookup').output.firstRow.Cnt)\n",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"ReconciliationResult": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "practice"
+		},
+		"annotations": []
+	}
+}
