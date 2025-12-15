@@ -11,17 +11,41 @@
 		"AzureSqlDatabase1_password": {
 			"value": ""
 		},
+		"lnk_azuresql_password": {
+			"value": ""
+		},
+		"lnk_onprem_password": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
-			"value": "https://abhii.dfs.core.windows.net/"
+			"value": "https://abhistoragea.dfs.core.windows.net/"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
-			"value": "abii-deb.database.windows.net"
+			"value": "abhideb.database.windows.net"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_database": {
-			"value": "abhi-admindatabase"
+			"value": "abhideb"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "abhiiadmin2"
+		},
+		"lnk_azuresql_properties_typeProperties_server": {
+			"value": "abii-deb.database.windows.net"
+		},
+		"lnk_azuresql_properties_typeProperties_database": {
+			"value": "abhi-admindatabase"
+		},
+		"lnk_azuresql_properties_typeProperties_userName": {
 			"value": "abii-deb"
+		},
+		"lnk_onprem_properties_typeProperties_server": {
+			"value": "ABHII\\SQLEXPRESS"
+		},
+		"lnk_onprem_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"lnk_onprem_properties_typeProperties_userName": {
+			"value": "Abhi"
 		},
 		"containerUri": {
 			"value": ""
