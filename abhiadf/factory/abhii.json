@@ -1,0 +1,9 @@
+{
+	"name": "abhii",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e1e19149-4b34-44be-8833-7be06f4475a1",
+		"tenantId": "638fd545-83d5-478f-815f-61a70f9ca703"
+	}
+}

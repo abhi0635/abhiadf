@@ -2,7 +2,7 @@
 	"name": "DelimitedText1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "lnk_adls",
+			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,9 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Person.AddressType.csv",
-				"folderPath": "data",
-				"fileSystem": "abhii-containerdev"
+				"folderPath": "human resources",
+				"fileSystem": "abhi"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -21,7 +20,7 @@
 		},
 		"schema": [
 			{
-				"name": "AddressTypeID",
+				"name": "DepartmentID",
 				"type": "String"
 			},
 			{
@@ -29,7 +28,7 @@
 				"type": "String"
 			},
 			{
-				"name": "rowguid",
+				"name": "GroupName",
 				"type": "String"
 			},
 			{

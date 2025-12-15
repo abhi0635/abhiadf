@@ -2,36 +2,23 @@
 	"name": "AzureSqlTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "lnk_azuresql",
+			"referenceName": "AzureSqlDatabase1",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table_name": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [
-			{
-				"name": "JobCandidateID",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "BusinessEntityID",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "Resume",
-				"type": "xml"
-			},
-			{
-				"name": "ModifiedDate",
-				"type": "datetime",
-				"precision": 23,
-				"scale": 3
-			}
-		],
+		"schema": [],
 		"typeProperties": {
-			"schema": "HumanResources",
-			"table": "JobCandidate"
+			"schema": "humanresources",
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

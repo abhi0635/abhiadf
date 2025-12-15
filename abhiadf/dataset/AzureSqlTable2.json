@@ -2,30 +2,12 @@
 	"name": "AzureSqlTable2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "lnk_azuresql",
+			"referenceName": "AzureSqlDatabase1",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"table_schema": {
-				"type": "string"
-			},
-			"table": {
-				"type": "string"
-			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
-		"typeProperties": {
-			"schema": {
-				"value": "@dataset().table_schema",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().table",
-				"type": "Expression"
-			}
-		}
+		"schema": []
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }
