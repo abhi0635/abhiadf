@@ -105,14 +105,7 @@
 							"outputs": [
 								{
 									"referenceName": "AzureSqlTable3",
-									"type": "DatasetReference",
-									"parameters": {
-										"table_name": {
-											"value": "@substring(\n    item().name,\n    add(indexOf(item().name, '.'), 1),\n    sub(\n        lastIndexOf(item().name, '.'),\n        add(indexOf(item().name, '.'), 1)\n    )\n)",
-											"type": "Expression"
-										},
-										"schema_name": "@substring(item().name,0 ,indexOf(item().name,'.') )"
-									}
+									"type": "DatasetReference"
 								}
 							]
 						},
