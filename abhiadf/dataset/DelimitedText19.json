@@ -2,7 +2,7 @@
 	"name": "DelimitedText19",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "lnk_adls",
+			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "error_files1",
-				"fileSystem": "abhii-containerdev"
+				"fileName": "error",
+				"fileSystem": "abhi"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

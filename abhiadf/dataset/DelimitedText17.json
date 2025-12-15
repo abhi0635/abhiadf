@@ -2,7 +2,7 @@
 	"name": "DelimitedText17",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "lnk_adls",
+			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
@@ -19,8 +19,8 @@
 					"value": "@dataset().file_name",
 					"type": "Expression"
 				},
-				"folderPath": "purchasefiles",
-				"fileSystem": "abhii-containerdev"
+				"folderPath": "purchasingfiles",
+				"fileSystem": "abhi"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

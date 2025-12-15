@@ -2,11 +2,15 @@
 	"name": "AzureSqlTable10",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "lnk_azuresql",
+			"referenceName": "AzureSqlDatabase1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": []
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pipeline_log"
+		}
 	}
 }
