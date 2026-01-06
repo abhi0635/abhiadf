@@ -1,16 +1,22 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "ds_asql_perameter",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase1",
+			"referenceName": "ls_asql",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"table_name": {
-				"type": "string"
+			"schemaname": {
+				"type": "String"
 			},
-			"schema_name": {
-				"type": "string"
+			"tablename": {
+				"type": "String"
+			},
+			"dbnamefromdataset": {
+				"type": "String"
+			},
+			"servernamefromdataset": {
+				"type": "String"
 			}
 		},
 		"annotations": [],
@@ -18,11 +24,11 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": {
-				"value": "@dataset().schema_name",
+				"value": "@dataset().schemaname",
 				"type": "Expression"
 			},
 			"table": {
-				"value": "@dataset().table_name",
+				"value": "@dataset().tablename",
 				"type": "Expression"
 			}
 		}

@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "new_g2",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "Human-resources",
+				"folderPath": "kkkkkkkkkk",
 				"fileSystem": "abhi"
 			},
 			"columnDelimiter": ",",

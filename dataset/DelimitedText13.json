@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "DelimitedText13",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "Human-resources",
+				"fileName": "Student.csv",
+				"folderPath": "SCD",
 				"fileSystem": "abhi"
 			},
 			"columnDelimiter": ",",
@@ -20,19 +21,23 @@
 		},
 		"schema": [
 			{
-				"name": "DepartmentID",
+				"name": "EmpID",
 				"type": "String"
 			},
 			{
-				"name": "Name",
+				"name": "EmpName",
 				"type": "String"
 			},
 			{
-				"name": "GroupName",
+				"name": "Department",
 				"type": "String"
 			},
 			{
-				"name": "ModifiedDate",
+				"name": "Salary",
+				"type": "String"
+			},
+			{
+				"name": "LastUpdatedDate",
 				"type": "String"
 			}
 		]

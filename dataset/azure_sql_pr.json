@@ -1,8 +1,8 @@
 {
-	"name": "AzureSqlTable3",
+	"name": "azure_sql_pr",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase1",
+			"referenceName": "parazed_azuresql_lnk",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

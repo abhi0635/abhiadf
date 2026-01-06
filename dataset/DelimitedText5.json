@@ -1,15 +1,24 @@
 {
-	"name": "DelimitedText1",
+	"name": "DelimitedText5",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"v": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().v",
+					"type": "Expression"
+				},
 				"folderPath": "Human-resources",
 				"fileSystem": "abhi"
 			},

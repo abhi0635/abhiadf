@@ -19,7 +19,7 @@
 					"value": "@dataset().file_name",
 					"type": "Expression"
 				},
-				"folderPath": "human resources",
+				"folderPath": "Human-resources",
 				"fileSystem": "abhi"
 			},
 			"columnDelimiter": ",",

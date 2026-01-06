@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable3",
+	"name": "AzureSqlTable18",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
@@ -7,7 +7,11 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": []
+		"schema": [],
+		"typeProperties": {
+			"schema": "HumanResources",
+			"table": "EmployeePayHistory"
+		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }

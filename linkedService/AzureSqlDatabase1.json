@@ -7,11 +7,18 @@
 		"typeProperties": {
 			"server": "abii-deb.database.windows.net",
 			"database": "abhi-admindatabase",
-			"encrypt": "mandatory",
-			"trustServerCertificate": false,
+			"encrypt": "optional",
+			"trustServerCertificate": true,
 			"authenticationType": "SQL",
 			"userName": "abii-deb",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDIzNjlFQkZELUYyOTYtNDVDMC1BMkQyLTgxRDA1RjY5N0IyM182MjgxMGYxYi02OGFlLTQwMjAtYjYzNC0wZGM5ODViMjBkMGYiDQp9"
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "lnk_azuresql",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "abii-deb"
+			}
 		}
 	}
 }

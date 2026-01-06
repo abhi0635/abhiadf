@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "AzureSqlTable5",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
@@ -8,19 +8,13 @@
 		"parameters": {
 			"table_name": {
 				"type": "string"
-			},
-			"schema_name": {
-				"type": "string"
 			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": {
-				"value": "@dataset().schema_name",
-				"type": "Expression"
-			},
+			"schema": "HumanResources",
 			"table": {
 				"value": "@dataset().table_name",
 				"type": "Expression"

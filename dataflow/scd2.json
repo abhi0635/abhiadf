@@ -1,0 +1,150 @@
+{
+	"name": "scd2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText14",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable15",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable16",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable17",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "derivedColumn2"
+				},
+				{
+					"name": "exists1"
+				},
+				{
+					"name": "exists2"
+				},
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EmpID as integer,",
+				"          EmpName as string,",
+				"          Department as string,",
+				"          Salary as integer,",
+				"          LastUpdatedDate as date",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source(output(",
+				"          EmpID as integer,",
+				"          EmpName as string,",
+				"          Department as string,",
+				"          Salary as integer,",
+				"          LastUpdatedDate as date,",
+				"          status as integer,",
+				"          hashkey as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source2",
+				"source1 derive(hashkey1 = md5(EmpName,Department,Salary,LastUpdatedDate),",
+				"          status = 1) ~> derivedColumn1",
+				"source2 derive(hashkey2 = md5(EmpName,Department,Salary,LastUpdatedDate),",
+				"          {statu()} = 0) ~> derivedColumn2",
+				"derivedColumn1, derivedColumn2 exists(source1@EmpID==source2@EmpID && hashkey1==hashkey2,",
+				"     negate:true,",
+				"     broadcast: 'auto')~> exists1",
+				"derivedColumn2, derivedColumn1 exists(source2@EmpID==source1@EmpID&&hashkey2!=hashkey1,",
+				"     negate:false,",
+				"     broadcast: 'auto')~> exists2",
+				"exists2 alterRow(updateIf(1==1)) ~> alterRow1",
+				"exists1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          EmpID as integer,",
+				"          EmpName as string,",
+				"          Department as string,",
+				"          Salary as integer,",
+				"          LastUpdatedDate as date,",
+				"          status as integer,",
+				"          hashkey as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          EmpID,",
+				"          EmpName,",
+				"          Department,",
+				"          Salary,",
+				"          LastUpdatedDate,",
+				"          status,",
+				"          hashkey = hashkey1",
+				"     )) ~> sink1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          EmpID as integer,",
+				"          EmpName as string,",
+				"          Department as string,",
+				"          Salary as integer,",
+				"          LastUpdatedDate as date,",
+				"          status as integer,",
+				"          hashkey as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:true,",
+				"     upsertable:false,",
+				"     keys:['EmpID'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          EmpID,",
+				"          EmpName,",
+				"          Department,",
+				"          Salary,",
+				"          LastUpdatedDate,",
+				"          status = {statu()},",
+				"          hashkey = hashkey2",
+				"     )) ~> sink2"
+			]
+		}
+	}
+}
