@@ -1,0 +1,94 @@
+{
+	"name": "pipeline3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "new_asql_dataset1",
+						"type": "DatasetReference",
+						"parameters": {
+							"servername": {
+								"value": "@pipeline().parameters.servernamefrompipeline",
+								"type": "Expression"
+							},
+							"dbname": {
+								"value": "@pipeline().parameters.dbnamefrompipeline",
+								"type": "Expression"
+							},
+							"username": {
+								"value": "@pipeline().parameters.usernamefrompipeline",
+								"type": "Expression"
+							},
+							"password": {
+								"value": "@pipeline().parameters.passwordfrompipeline",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "new_g2",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"parameters": {
+			"servernamefrompipeline": {
+				"type": "String"
+			},
+			"dbnamefrompipeline": {
+				"type": "String"
+			},
+			"usernamefrompipeline": {
+				"type": "String"
+			},
+			"passwordfrompipeline": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-01-06T06:58:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

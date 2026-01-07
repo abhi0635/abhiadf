@@ -1,0 +1,24 @@
+{
+	"name": "RECONCILIATION",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "reconicilationpipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2025-12-16T08:55:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
