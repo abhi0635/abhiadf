@@ -1,0 +1,45 @@
+{
+	"name": "new_asql_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "parazed_azuresql_lnk",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"servername": {
+					"value": "@dataset().servernamefromdataset",
+					"type": "Expression"
+				},
+				"database": {
+					"value": "@dataset().dbnamefromdataset",
+					"type": "Expression"
+				},
+				"username": {
+					"value": "@dataset().usernamefromdataset",
+					"type": "Expression"
+				},
+				"password": {
+					"value": "@dataset().passwordfromdataset",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"servernamefromdataset": {
+				"type": "string"
+			},
+			"dbnamefromdataset": {
+				"type": "string"
+			},
+			"usernamefromdataset": {
+				"type": "string"
+			},
+			"passwordfromdataset": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

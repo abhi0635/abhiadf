@@ -1,0 +1,47 @@
+{
+	"name": "ds_asql_perameter",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_asql",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"severname": {
+					"value": "@dataset().servernamefromdataset",
+					"type": "Expression"
+				},
+				"dbname": {
+					"value": "@dataset().dbnamefromdataset",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"schemaname": {
+				"type": "String"
+			},
+			"tablename": {
+				"type": "String"
+			},
+			"dbnamefromdataset": {
+				"type": "String"
+			},
+			"servernamefromdataset": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schemaname",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().tablename",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,13 @@
+{
+	"name": "azure_sql_pr",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "parazed_azuresql_lnk",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
