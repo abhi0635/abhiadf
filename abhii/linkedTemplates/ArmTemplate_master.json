@@ -11,17 +11,21 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
 		},
-		"AzureSqlDatabase1_password": {
+		"HttpServer1_password": {
 			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
+			"metadata": "Secure string for 'password' of 'HttpServer1'"
 		},
-		"lnk_azuresql_password": {
+		"SqlServer1_password": {
 			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'lnk_azuresql'"
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
 		},
-		"lnk_onprem_password": {
+		"lnk_git_credential": {
 			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'lnk_onprem'"
+			"metadata": "Secure string for 'credential' of 'lnk_git'"
+		},
+		"ls_asql_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_asql'"
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
@@ -29,39 +33,67 @@
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",
-			"defaultValue": "abhideb.database.windows.net"
+			"defaultValue": "abii-deb.database.windows.net"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_database": {
 			"type": "string",
-			"defaultValue": "abhideb"
+			"defaultValue": "abhi"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"type": "string",
-			"defaultValue": "abhiiadmin2"
-		},
-		"lnk_azuresql_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "abii-deb.database.windows.net"
-		},
-		"lnk_azuresql_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "abhi-admindatabase"
-		},
-		"lnk_azuresql_properties_typeProperties_userName": {
-			"type": "string",
 			"defaultValue": "abii-deb"
 		},
-		"lnk_onprem_properties_typeProperties_server": {
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "abhi0635"
+		},
+		"SqlServer1_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "ABHII\\SQLEXPRESS"
 		},
-		"lnk_onprem_properties_typeProperties_database": {
+		"SqlServer1_properties_typeProperties_database": {
 			"type": "string",
-			"defaultValue": "AdventureWorks2022"
+			"defaultValue": "abhi"
 		},
-		"lnk_onprem_properties_typeProperties_userName": {
+		"SqlServer1_properties_typeProperties_userName": {
 			"type": "string",
-			"defaultValue": "Abhi"
+			"defaultValue": "abhi"
+		},
+		"lnk_azuresql_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://abhi-key.vault.azure.net/"
+		},
+		"lnk_git_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "abhi0635"
+		},
+		"ls_asql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "@{linkedService().severname}"
+		},
+		"ls_asql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().dbname}"
+		},
+		"ls_asql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "abii-deb"
+		},
+		"parazed_azuresql_lnk_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "@{linkedService().servername}"
+		},
+		"parazed_azuresql_lnk_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().database}"
+		},
+		"parazed_azuresql_lnk_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "@{linkedService().username}"
 		},
 		"containerUri": {
 			"type": "string",
@@ -93,32 +125,47 @@
 					"AzureDataLakeStorage1_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
 					},
-					"AzureSqlDatabase1_password": {
-						"value": "[parameters('AzureSqlDatabase1_password')]"
+					"HttpServer1_password": {
+						"value": "[parameters('HttpServer1_password')]"
 					},
-					"lnk_azuresql_password": {
-						"value": "[parameters('lnk_azuresql_password')]"
+					"lnk_git_credential": {
+						"value": "[parameters('lnk_git_credential')]"
+					},
+					"ls_asql_password": {
+						"value": "[parameters('ls_asql_password')]"
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
-					"AzureSqlDatabase1_properties_typeProperties_server": {
-						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
 					},
-					"AzureSqlDatabase1_properties_typeProperties_database": {
-						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]"
+					"HttpServer1_properties_typeProperties_userName": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_userName')]"
 					},
-					"AzureSqlDatabase1_properties_typeProperties_userName": {
-						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
+					"lnk_azuresql_properties_typeProperties_baseUrl": {
+						"value": "[parameters('lnk_azuresql_properties_typeProperties_baseUrl')]"
 					},
-					"lnk_azuresql_properties_typeProperties_server": {
-						"value": "[parameters('lnk_azuresql_properties_typeProperties_server')]"
+					"lnk_git_properties_typeProperties_username": {
+						"value": "[parameters('lnk_git_properties_typeProperties_username')]"
 					},
-					"lnk_azuresql_properties_typeProperties_database": {
-						"value": "[parameters('lnk_azuresql_properties_typeProperties_database')]"
+					"ls_asql_properties_typeProperties_server": {
+						"value": "[parameters('ls_asql_properties_typeProperties_server')]"
 					},
-					"lnk_azuresql_properties_typeProperties_userName": {
-						"value": "[parameters('lnk_azuresql_properties_typeProperties_userName')]"
+					"ls_asql_properties_typeProperties_database": {
+						"value": "[parameters('ls_asql_properties_typeProperties_database')]"
+					},
+					"ls_asql_properties_typeProperties_userName": {
+						"value": "[parameters('ls_asql_properties_typeProperties_userName')]"
+					},
+					"parazed_azuresql_lnk_properties_typeProperties_server": {
+						"value": "[parameters('parazed_azuresql_lnk_properties_typeProperties_server')]"
+					},
+					"parazed_azuresql_lnk_properties_typeProperties_database": {
+						"value": "[parameters('parazed_azuresql_lnk_properties_typeProperties_database')]"
+					},
+					"parazed_azuresql_lnk_properties_typeProperties_userName": {
+						"value": "[parameters('parazed_azuresql_lnk_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -158,17 +205,26 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"lnk_onprem_password": {
-						"value": "[parameters('lnk_onprem_password')]"
+					"SqlServer1_password": {
+						"value": "[parameters('SqlServer1_password')]"
 					},
-					"lnk_onprem_properties_typeProperties_server": {
-						"value": "[parameters('lnk_onprem_properties_typeProperties_server')]"
+					"AzureSqlDatabase1_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
 					},
-					"lnk_onprem_properties_typeProperties_database": {
-						"value": "[parameters('lnk_onprem_properties_typeProperties_database')]"
+					"AzureSqlDatabase1_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]"
 					},
-					"lnk_onprem_properties_typeProperties_userName": {
-						"value": "[parameters('lnk_onprem_properties_typeProperties_userName')]"
+					"AzureSqlDatabase1_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
+					},
+					"SqlServer1_properties_typeProperties_server": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_server')]"
+					},
+					"SqlServer1_properties_typeProperties_database": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_database')]"
+					},
+					"SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
 					}
 				}
 			},

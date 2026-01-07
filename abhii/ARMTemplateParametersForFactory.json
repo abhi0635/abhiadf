@@ -8,44 +8,68 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
-		"AzureSqlDatabase1_password": {
+		"HttpServer1_password": {
 			"value": ""
 		},
-		"lnk_azuresql_password": {
+		"SqlServer1_password": {
 			"value": ""
 		},
-		"lnk_onprem_password": {
+		"lnk_git_credential": {
+			"value": ""
+		},
+		"ls_asql_password": {
 			"value": ""
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://abhistoragea.dfs.core.windows.net/"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
-			"value": "abhideb.database.windows.net"
-		},
-		"AzureSqlDatabase1_properties_typeProperties_database": {
-			"value": "abhideb"
-		},
-		"AzureSqlDatabase1_properties_typeProperties_userName": {
-			"value": "abhiiadmin2"
-		},
-		"lnk_azuresql_properties_typeProperties_server": {
 			"value": "abii-deb.database.windows.net"
 		},
-		"lnk_azuresql_properties_typeProperties_database": {
-			"value": "abhi-admindatabase"
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "abhi"
 		},
-		"lnk_azuresql_properties_typeProperties_userName": {
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "abii-deb"
 		},
-		"lnk_onprem_properties_typeProperties_server": {
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"value": "abhi0635"
+		},
+		"SqlServer1_properties_typeProperties_server": {
 			"value": "ABHII\\SQLEXPRESS"
 		},
-		"lnk_onprem_properties_typeProperties_database": {
-			"value": "AdventureWorks2022"
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "abhi"
 		},
-		"lnk_onprem_properties_typeProperties_userName": {
-			"value": "Abhi"
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "abhi"
+		},
+		"lnk_azuresql_properties_typeProperties_baseUrl": {
+			"value": "https://abhi-key.vault.azure.net/"
+		},
+		"lnk_git_properties_typeProperties_username": {
+			"value": "abhi0635"
+		},
+		"ls_asql_properties_typeProperties_server": {
+			"value": "@{linkedService().severname}"
+		},
+		"ls_asql_properties_typeProperties_database": {
+			"value": "@{linkedService().dbname}"
+		},
+		"ls_asql_properties_typeProperties_userName": {
+			"value": "abii-deb"
+		},
+		"parazed_azuresql_lnk_properties_typeProperties_server": {
+			"value": "@{linkedService().servername}"
+		},
+		"parazed_azuresql_lnk_properties_typeProperties_database": {
+			"value": "@{linkedService().database}"
+		},
+		"parazed_azuresql_lnk_properties_typeProperties_userName": {
+			"value": "@{linkedService().username}"
 		}
 	}
 }
