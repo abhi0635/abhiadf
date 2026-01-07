@@ -21,6 +21,10 @@
 					"name": "sink1"
 				},
 				{
+					"dataset": {
+						"referenceName": "DelimitedText27",
+						"type": "DatasetReference"
+					},
 					"name": "sink2"
 				}
 			],
@@ -69,6 +73,9 @@
 				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
 				"split1@InvalidRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink2"
 			]
