@@ -5,7 +5,7 @@
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
 			"server": "abii-deb.database.windows.net",
-			"database": "abhi",
+			"database": "abhi-admindatabase",
 			"encrypt": "optional",
 			"trustServerCertificate": true,
 			"authenticationType": "SQL",
