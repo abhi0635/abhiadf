@@ -1,0 +1,9 @@
+{
+	"name": "abhi321",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0e44e70f-dc86-448a-b72f-c12598252bc5",
+		"tenantId": "415acefb-17e6-4db0-99d1-2076eaa080d5"
+	}
+}
