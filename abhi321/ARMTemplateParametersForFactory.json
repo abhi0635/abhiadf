@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "abhi321"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"HttpServer1_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"ls_asql_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://abhistorageac.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "abhhinay.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "abhinew"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "abhinay"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"value": "abhi0635"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "ABHII\\SQLEXPRESS"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "abhi"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "abhi"
+		},
+		"lnk_azuresql_properties_typeProperties_baseUrl": {
+			"value": "https://abhi-key.vault.azure.net/"
+		},
+		"ls_asql_properties_typeProperties_server": {
+			"value": "@{linkedService().severname}"
+		},
+		"ls_asql_properties_typeProperties_database": {
+			"value": "@{linkedService().dbname}"
+		},
+		"ls_asql_properties_typeProperties_userName": {
+			"value": "abii-deb"
+		},
+		"parazed_azuresql_lnk_properties_typeProperties_server": {
+			"value": "@{linkedService().servername}"
+		},
+		"parazed_azuresql_lnk_properties_typeProperties_database": {
+			"value": "@{linkedService().database}"
+		},
+		"parazed_azuresql_lnk_properties_typeProperties_userName": {
+			"value": "@{linkedService().username}"
+		}
+	}
+}
