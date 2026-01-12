@@ -92,7 +92,10 @@
 							"inputs": [
 								{
 									"referenceName": "DelimitedText29",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"file_name": "v"
+									}
 								}
 							],
 							"outputs": [
