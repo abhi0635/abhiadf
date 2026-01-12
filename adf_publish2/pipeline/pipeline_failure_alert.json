@@ -27,15 +27,9 @@
 						}
 					},
 					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -55,37 +49,75 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText22",
+						"referenceName": "AzureSqlTable32",
 						"type": "DatasetReference"
 					}
 				]
 			},
 			{
-				"name": "Web1",
-				"type": "WebActivity",
+				"name": "If Condition1",
+				"type": "IfCondition",
 				"dependsOn": [
 					{
 						"activity": "Copy data123",
 						"dependencyConditions": [
+							"Succeeded",
 							"Failed"
 						]
 					}
 				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
 				"userProperties": [],
 				"typeProperties": {
-					"method": "POST",
-					"url": "https://prod-19.centralindia.logic.azure.com:443/workflows/346f23e18fa84a6fbc5e194b211e53af/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=6pWqwtYAHSn44C4EKmd2zHa-k-NGjZkBvrrCc3xBMfI",
-					"body": {
-						"value": "{\n     \"PipelineName\": \"@(pipeline(). Pipeline)\",\n     \"DataFactoryName\": \"@{pipeline().DataFactory}\",\n     \"RunIDs\": \"@{pipeline().RunId}\",\n     \"ErrorMessage\": \"@{activity('Copy data123').output.errors[0].Message}\"\n}",
+					"expression": {
+						"value": "@equals(activity('Copy data123').Status,'Succeeded')\n",
 						"type": "Expression"
-					}
+					},
+					"ifFalseActivities": [
+						{
+							"name": "Web2",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"method": "POST",
+								"url": "https://prod-31.centralindia.logic.azure.com:443/workflows/b1e5ad440ec547ae9a85e2fa0c69f164/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=qPgTYk-H978XUS8zMl2O29yGLpsnjAwIGyhgh9TW4u8",
+								"body": {
+									"value": "{\n  \"pipelineName\": \"@{pipeline().Pipeline}\",\n  \"dataFactory\": \"@{pipeline().DataFactory}\",\n  \"runId\": \"@{pipeline().RunId}\",\n\n  \"activityName\": \"Copy data123\",\n  \"status\": \"@{activity('Copy data123').Status}\",\n\n  \"errorMessage\": \"@{if(equals(activity('Copy data123').Status,'Failed'), activity('Copy data123').Error.message, 'Pipeline executed successfully')}\"\n}\n",
+									"type": "Expression"
+								}
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "Web1",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"method": "POST",
+								"url": "https://prod-31.centralindia.logic.azure.com:443/workflows/b1e5ad440ec547ae9a85e2fa0c69f164/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=qPgTYk-H978XUS8zMl2O29yGLpsnjAwIGyhgh9TW4u8",
+								"body": {
+									"value": "{\n  \"pipelineName\": \"@{pipeline().Pipeline}\",\n  \"dataFactory\": \"@{pipeline().DataFactory}\",\n  \"runId\": \"@{pipeline().RunId}\",\n\n  \"activityName\": \"Copy data123\",\n  \"status\": \"@{activity('Copy data123').Status}\",\n\n  \"errorMessage\": \"@{if(equals(activity('Copy data123').Status,'Failed'), activity('Copy data123').Error.message, 'Pipeline executed successfully')}\"\n}\n",
+									"type": "Expression"
+								}
+							}
+						}
+					]
 				}
 			}
 		],

@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "xyz.csv",
+				"fileName": "HumanResources_Department.csv",
+				"folderPath": "humanre",
 				"fileSystem": "abhi"
 			},
 			"columnDelimiter": ",",
