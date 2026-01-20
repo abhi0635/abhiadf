@@ -11,9 +11,6 @@
 		"AzureSqlDatabase1_password": {
 			"value": ""
 		},
-		"HttpServer1_password": {
-			"value": ""
-		},
 		"SqlServer1_password": {
 			"value": ""
 		},
@@ -31,12 +28,6 @@
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "abhinay"
-		},
-		"HttpServer1_properties_typeProperties_url": {
-			"value": "https://raw.githubusercontent.com"
-		},
-		"HttpServer1_properties_typeProperties_userName": {
-			"value": "abhi0635"
 		},
 		"SqlServer1_properties_typeProperties_server": {
 			"value": "ABHII\\SQLEXPRESS"
