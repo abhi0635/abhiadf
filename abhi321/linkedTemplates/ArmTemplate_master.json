@@ -53,7 +53,7 @@
 		},
 		"lnk_azuresql_properties_typeProperties_baseUrl": {
 			"type": "string",
-			"defaultValue": "https://abhi-key.vault.azure.net/"
+			"defaultValue": "https://abhiazure.vault.azure.net/"
 		},
 		"ls_asql_properties_typeProperties_server": {
 			"type": "string",

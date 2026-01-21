@@ -39,7 +39,7 @@
 			"value": "abhi"
 		},
 		"lnk_azuresql_properties_typeProperties_baseUrl": {
-			"value": "https://abhi-key.vault.azure.net/"
+			"value": "https://abhiazure.vault.azure.net/"
 		},
 		"ls_asql_properties_typeProperties_server": {
 			"value": "@{linkedService().severname}"
