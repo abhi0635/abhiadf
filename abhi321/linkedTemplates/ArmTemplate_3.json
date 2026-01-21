@@ -663,7 +663,7 @@
 					}
 				},
 				"connectVia": {
-					"referenceName": "integrationRuntime2",
+					"referenceName": "integrationRuntime3",
 					"type": "IntegrationRuntimeReference"
 				}
 			},

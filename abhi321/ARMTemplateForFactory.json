@@ -5184,12 +5184,12 @@
 					}
 				},
 				"connectVia": {
-					"referenceName": "integrationRuntime2",
+					"referenceName": "integrationRuntime3",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime2')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime3')]"
 			]
 		},
 		{
@@ -5299,12 +5299,14 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/integrationRuntime2')]",
+			"name": "[concat(parameters('factoryName'), '/integrationRuntime3')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"type": "SelfHosted",
-				"typeProperties": {}
+				"typeProperties": {
+					"selfContainedInteractiveAuthoringEnabled": true
+				}
 			},
 			"dependsOn": []
 		},
